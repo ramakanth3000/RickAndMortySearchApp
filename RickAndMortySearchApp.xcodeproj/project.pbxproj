@@ -29,9 +29,38 @@
 		7B4081062E296CDD003F916D /* RickAndMortySearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortySearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7B4081352E29A824003F916D /* Exceptions for "RickAndMortySearchApp" folder in "RickAndMortySearchAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model/Character.swift,
+				Model/CharacterResponse.swift,
+				Networking/NetworkError.swift,
+				Networking/NetworkManager.swift,
+				ViewModel/SearchViewModel.swift,
+			);
+			target = 7B4080FB2E296CDD003F916D /* RickAndMortySearchAppTests */;
+		};
+		7B4081362E29A824003F916D /* Exceptions for "RickAndMortySearchApp" folder in "RickAndMortySearchAppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model/Character.swift,
+				Model/CharacterResponse.swift,
+				Networking/NetworkError.swift,
+				Networking/NetworkManager.swift,
+				ViewModel/SearchViewModel.swift,
+			);
+			target = 7B4081052E296CDD003F916D /* RickAndMortySearchAppUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7B4080EE2E296CD9003F916D /* RickAndMortySearchApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7B4081352E29A824003F916D /* Exceptions for "RickAndMortySearchApp" folder in "RickAndMortySearchAppTests" target */,
+				7B4081362E29A824003F916D /* Exceptions for "RickAndMortySearchApp" folder in "RickAndMortySearchAppUITests" target */,
+			);
 			path = RickAndMortySearchApp;
 			sourceTree = "<group>";
 		};

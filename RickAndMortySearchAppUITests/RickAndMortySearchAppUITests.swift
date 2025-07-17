@@ -9,35 +9,36 @@ import XCTest
 
 final class RickAndMortySearchAppUITests: XCTestCase {
 
+    private var app: XCUIApplication!
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    @MainActor
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testTypingSearchAndNavigatingToDetail() throws {
+        
+        // Type text in search field
+        let searchField = app.textFields["Search characters"]
+        XCTAssertTrue(searchField.waitForExistence(timeout: 3))
+        searchField.tap()
+        searchField.typeText("Rick")
+
+        // Result's to appear
+        let firstResult = app.staticTexts["Rick Sanchez"]
+        XCTAssertTrue(firstResult.waitForExistence(timeout: 5))
+
+        // Tap on first result
+        firstResult.tap()
+
+        // Verify detail view content
+        let speciesLabel = app.staticTexts["Species is Human"]
+        XCTAssertTrue(speciesLabel.exists)
+
+        let statusLabel = app.staticTexts["Status is Alive"]
+        XCTAssertTrue(statusLabel.exists)
+
     }
 }
+
